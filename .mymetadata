@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="SourceManager"
+  id="myeclipse.1339310121411"
+  context-root="/SourceManager"
+  j2ee-spec="5.0"
+  archive="SourceManager.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

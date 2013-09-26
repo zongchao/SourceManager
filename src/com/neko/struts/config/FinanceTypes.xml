@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="FinanceTypeManager" namespace="/FinanceManager" extends="struts-default">
+		<!--<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>  
+		<global-exception-mappings>  
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+		-->
+		<!-- 财务类型列表 -->
+		<!-- <action name="financeTypeList" class="financeTypeAction" method="financeTypeList">
+			<result>/FinanceManager/financeTypeList.jsp</result>
+		</action> -->
+
+		<!-- 添加财务类型 -->
+		<!-- <action name="addFinanceType" class="financeTypeAction" method="addFinanceType">
+			<result type="redirect">financeTypeList?financeType.type=${financeType.type}</result>
+			<result name="input" type="redirect">addFinanceTypePre?financeType.type=${financeType.type}</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action> -->
+		
+		<!-- 添加财务类型（准备） -->
+		<!-- <action name="addFinanceTypePre" class="financeTypeAction" method="addFinanceTypePre">
+			<result>/FinanceManager/addFinanceType.jsp</result>
+		</action> -->	
+			
+		<!-- 检查财务信息类型名称是否存在 -->
+		<!-- <action name="checkFinanceTypeName" class="financeTypeAction" method="checkFinanceTypeName">
+			<result name="success" type="plainText">
+				<param name="location">/blank.jsp</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		 -->
+		<!-- 删除财务类型 -->
+		<!-- <action name="delFinanceType" class="financeTypeAction" method="delFinanceType">
+			<result type="redirect">financeTypeList?financeType.type=${financeType.type}</result>
+			<result name="input" type="redirect">financeTypeList?financeType.type=${financeType.type}</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action> -->
+		
+		<!-- 跳转到修改财务类型页面 -->
+		<!-- <action name="modFinanceTypePre" class="financeTypeAction" method="findFinanceTypeById">
+			<result>/FinanceManager/modFinanceType.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action> -->
+		
+		<!-- 修改财务类型 -->
+		<!-- <action name="modFinanceType" class="financeTypeAction" method="modFinanceType">
+			<result type="redirect">financeTypeList?financeType.type=${financeType.type}</result>
+			<result name="input" type="redirect">modFinanceTypePre?financeType.id=${financeType.id}</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action> -->
+		
+	</package>
+</struts>

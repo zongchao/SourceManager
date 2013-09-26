@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
+    <constant name="struts.multipart.maxSize" value="10701096"/>
+    <!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
+    <constant name="struts.multipart.saveDir " value="d:/tmp" />
+    
+	<package name="SourceManager" namespace="/SourceManager" extends="struts-default">
+		<!--<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>  
+		<global-exception-mappings>  
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+		-->
+		<!-- 资源列表 -->
+		<!--<action name="sourceList" class="sourceAction" method="sourceList">
+			<result>/SourceManager/sourceList.jsp</result>
+		</action>
+		
+		--><!-- 添加资源（准备）-->
+		<!--<action name="addSourcePre" class="sourceAction" method="addSourcePre">
+			<result>/SourceManager/addSource.jsp</result>
+		</action>
+		
+		--><!-- 添加资源 -->
+		<!--<action name="addSource" class="sourceAction" method="addSource">
+			<result type="redirect">sourceList?source.sourcesParent.id=${source.sourcesParent.id}&amp;pager.pageNo=1</result>
+			<result name="input" type="redirect">addSourcePre</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 删除资源 -->
+		<!--<action name="delSource" class="sourceAction" method="delSource">
+			<result type="redirect">sourceList?source.sourcesParent.id=${source.sourcesParent.id}&amp;pager.pageNo=1</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 查看资源详细信息 -->
+		<!--<action name="sourceDetail" class="sourceAction" method="findSourceById">
+			<result>/SourceManager/sourceDetail.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 跳转到修改资源页面 -->
+		<!--<action name="modSourcePre" class="sourceAction" method="findSourceById">
+			<result>/SourceManager/modSource.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 修改资源 -->
+		<!--<action name="modSource" class="sourceAction" method="modSource">
+			<result type="redirect">sourceList?source.sourcesParent.id=${source.sourcesParent.id}&amp;pager.pageNo=1</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+	--></package>
+</struts>

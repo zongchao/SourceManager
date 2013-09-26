@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           ">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.neko.dao,com.neko.service.impl,com.neko.action,com.neko.common.service" />
+
+	<bean id="TestSpring" class="com.neko.bean.TestSpring">
+		<property name="name" value="neko" />
+	</bean>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+		</property>
+		<property name="url"
+			value="jdbc:sqlserver://localhost;databaseName=SourceManager;">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	<!-- hibernate配置文件 配置 -->
+	<!-- 
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop> 
+          		<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/neko/bean/SourceTypes.hbm.xml</value>
+				<value>com/neko/bean/Sources.hbm.xml</value>
+				<value>com/neko/bean/Users.hbm.xml</value>
+				<value>com/neko/bean/Attachments.hbm.xml</value>
+				<value>com/neko/bean/Contacts.hbm.xml</value>
+				<value>com/neko/bean/ContactTypes.hbm.xml</value>
+				<value>com/neko/bean/Finances.hbm.xml</value>
+				<value>com/neko/bean/FinanceTypes.hbm.xml</value>
+				<value>com/neko/bean/MessageBoards.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	 -->
+	 <!-- hibernate注解 配置  -->
+	 <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+					</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.neko.bean.Users</value>
+				<value>com.neko.bean.MessageBoards</value>
+				<value>com.neko.bean.Sources</value>
+				<value>com.neko.bean.SourceTypes</value>
+				<value>com.neko.bean.Attachments</value>
+				<value>com.neko.bean.Contacts</value>
+				<value>com.neko.bean.ContactTypes</value>
+				<value>com.neko.bean.Finances</value>
+				<value>com.neko.bean.FinanceTypes</value>
+			</list>
+		</property>
+	</bean>
+	 
+	<!-- ************************************* Finances(start) ************************************* -->
+
+	<!--<bean id="financeAction" class="com.neko.action.FinanceAction">
+		<property name="financeService" ref="financeService" />
+		<property name="financeTypeService" ref="financeTypeService" />
+	</bean>
+	
+	<bean id="financeService" class="com.neko.service.impl.FinanceServiceHibernateImpl">
+		<property name="financesDAO" ref="FinancesDAO"/>
+	</bean>
+	
+	<bean id="FinancesDAO" class="com.neko.dao.FinancesDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	--><!-- ************************************* Finances(end) ************************************* -->
+	
+	<!-- ************************************* FinanceTypes(start) ************************************* -->
+	
+	<!--<bean id="financeTypeAction" class="com.neko.action.FinanceTypeAction">
+		<property name="financeTypeService" ref="financeTypeService" />
+	</bean>
+	
+	<bean id="financeTypeService" class="com.neko.service.impl.FinanceTypeServiceHibernateImpl">
+		<property name="financeTypesDAO" ref="FinanceTypesDAO"/>
+	</bean>
+	
+	<bean id="FinanceTypesDAO" class="com.neko.dao.FinanceTypesDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	--><!-- ************************************* FinanceTypes(end) ************************************* -->
+	
+	<!-- ************************************* user(start) ************************************* -->
+	
+	<!--<bean id="userAction" class="com.neko.action.UserAction">
+		<property name="userService" ref="userService"/>
+	</bean>
+	
+	<bean id="userService" class="com.neko.service.impl.UserServiceHibernateImpl">
+		<property name="usersDAO" ref="UsersDAO"/>
+	</bean>
+	
+	<bean id="usersDAO" class="com.neko.dao.UsersDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	-->
+	
+	<!-- ************************************* user(end) ************************************* -->
+	
+	<!-- ************************************* source(start) ************************************* -->
+	<!--  
+	<bean id="sourceAction" class="com.neko.action.SourceAction">
+		<property name="sourceService" ref="sourceService"/>
+		<property name="sourceTypeService" ref="sourceTypeService"/>
+		<property name="attachmentService" ref="attachmentService"></property>
+	</bean>
+	
+	<bean id="sourceService" class="com.neko.service.impl.SourceServiceHibernateImpl">
+		<property name="sourcesDAO" ref="SourcesDAO"/>
+	</bean>
+
+	<bean id="SourcesDAO" class="com.neko.dao.SourcesDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	-->
+	<!-- ************************************* source(end) ************************************* -->
+	
+	<!-- ************************************* sourceType(start) ************************************* -->
+	
+	<!--<bean id="sourceTypeAction" class="com.neko.action.SourceTypeAction">
+		<property name="sourceTypeService" ref="sourceTypeService"/>
+	</bean>
+	
+	<bean id="sourceTypeService" class="com.neko.service.impl.SourceTypeServiceHibernateImpl">
+		<property name="sourceTypesDAO" ref="SourceTypesDAO"/>
+	</bean>
+
+	<bean id="SourceTypesDAO" class="com.neko.dao.SourceTypesDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	--><!-- ************************************* sourceType(end) ************************************* -->
+	
+	<!-- ************************************* attachment(start) ************************************* -->
+	<!-- 
+	<bean id="attachmentAction" class="com.neko.action.AttachmentAction">
+		<property name="attachmentService" ref="attachmentService"/>
+	</bean>
+	
+	<bean id="attachmentService" class="com.neko.service.impl.AttachmentServiceHibernateImpl">
+		<property name="attachmentsDAO" ref="AttachmentsDAO"/>
+	</bean>
+
+	<bean id="AttachmentsDAO" class="com.neko.dao.AttachmentsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	 -->
+	<!-- ************************************* attachment(end) ************************************* -->
+	
+	<!-- ************************************* contacts(start) ************************************* -->
+	
+	<!--<bean id="contactAction" class="com.neko.action.ContactAction">
+		<property name="contactService" ref="contactService" />
+		<property name="contactTypeService" ref="contactTypeService"/>
+		<property name="attachmentService" ref="attachmentService" />
+	</bean>
+	
+	<bean id="contactService" class="com.neko.service.impl.ContactServiceHibernateImpl">
+		<property name="contactsDAO" ref="ContactsDAO"/>
+	</bean>
+	
+	<bean id="ContactsDAO" class="com.neko.dao.ContactsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	--><!-- ************************************* contacts(end) ************************************* -->
+	
+	<!-- ************************************* contactsTypes(start) ************************************* -->
+	
+	<!--<bean id="contactTypeService" class="com.neko.service.impl.ContactTypeServiceHibernateImpl">
+		<property name="contactTypesDAO" ref="ContactTypesDAO"/>
+	</bean>
+	
+	<bean id="ContactTypesDAO" class="com.neko.dao.ContactTypesDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	--><!-- ************************************* contactsTypes(end) ************************************* -->
+	
+	<!-- ************************************* MessageBoards(start) ************************************* -->
+	<!--<bean id="messageBoardAction" class="com.neko.action.MessageBoardAction">
+		<property name="messageBoardService" ref="messageBoardService" />
+	</bean>
+	
+	<bean id="messageBoardService" class="com.neko.service.impl.MessageBoardServiceHibernateImpl">
+		<property name="messageBoardsDAO" ref="MessageBoardsDAO"/>
+	</bean>
+	
+	<bean id="MessageBoardsDAO" class="com.neko.dao.MessageBoardsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	--><!-- ************************************* MessageBoards(end) ************************************* -->
+	
+	<!-- ************************************* common(start) ************************************* -->
+	
+	<!--<bean id="commonAction" class="com.neko.action.CommonAction">
+		<property name="captchaService" ref="captchaService"/>
+	</bean>
+	
+	<bean id="captchaService" class="com.neko.common.service.CaptchaService" />
+	
+	--><!-- ************************************* common(end) ************************************* -->
+	
+	
+	<!-- ************************************* 事务管理设置(start) ************************************* -->
+
+	<!-- 事务管理 -->  
+    <bean id="transactionManager"
+       class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+       <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>	
+    
+	<!-- 配置事务拦截器 -->   
+    <bean id="transactionInterceptor"
+       class="org.springframework.transaction.interceptor.TransactionInterceptor">
+       <!--  事务拦截器bean需要依赖注入一个事务管理器 -->   
+       <property name="transactionManager">
+           <ref bean="transactionManager"/>
+       </property>
+       <property name="transactionAttributes">
+            <!-- 下面定义事务传播属性 service -->  
+           <props>
+              <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+              <prop key="add*">PROPAGATION_REQUIRED</prop>
+              <prop key="mod*">PROPAGATION_REQUIRED</prop>
+              <prop key="del*">PROPAGATION_REQUIRED</prop>
+           </props>
+       </property>
+    </bean>
+
+	<!-- 那些类的哪些方法参与事务 -->
+	<aop:config>
+		<aop:pointcut id="allManagerMethod" expression="execution(* com.neko.service.impl.*.*(..))" />
+		<aop:advisor pointcut-ref="allManagerMethod" advice-ref="transactionInterceptor" />
+	</aop:config>
+	
+	<!-- ************************************* 事务管理设置(end) ************************************* -->
+
+</beans>

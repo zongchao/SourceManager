@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="SourceTypeManager" namespace="/SourceManager" extends="struts-default">
+		<!--<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>  
+		<global-exception-mappings>  
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+		-->
+		<!-- 添加资源类型 -->
+		<!--<action name="addSourceType" class="sourceTypeAction" method="addSourceType">
+			<result type="redirect">sourceTypeList</result>
+			<result name="input">/SourceManager/addSourceType.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 检查资源类型名称是否存在 -->
+		<!--<action name="checkSourceTypeName" class="sourceTypeAction" method="checkSourceTypeName">
+			<result name="success" type="plainText">
+				<param name="location">/blank.jsp</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		
+		--><!-- 跳转到修改资源类型页面 -->
+		<!--<action name="modSourceTypePre" class="sourceTypeAction" method="findSourceTypeById">
+			<result>/SourceManager/modSourceType.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 修改资源类型 -->
+		<!--<action name="modSourceType" class="sourceTypeAction" method="modSourceType">
+			<result type="redirect">sourceTypeList</result>
+			<result name="input" type="redirect">modSourceTypePre?sourceType.id=${sourceType.id}</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 删除资源类型 -->
+		<!--<action name="delSourceType" class="sourceTypeAction" method="delSourceType">
+			<result type="redirect">sourceTypeList</result>
+			<result name="error" type="redirect">/error.jsp</result>
+			<result name="input" type="chain">
+				<param name="actionName">sourceTypeList</param>
+  				<param name="namespace">/SourceManager</param>
+			</result>
+		</action>
+		
+		--><!-- 资源类型列表 -->
+		<!--<action name="sourceTypeList" class="sourceTypeAction" method="sourceTypeList">
+			<interceptor-ref name="store">
+				<param name="operationMode">RETRIEVE</param>
+			</interceptor-ref>
+			<result>/SourceManager/sourceTypeList.jsp</result>
+		</action>
+
+	--></package>
+</struts>

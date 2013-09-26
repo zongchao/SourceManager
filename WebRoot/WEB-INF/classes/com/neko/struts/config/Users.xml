@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="UserManager" namespace="/UserManager" extends="struts-default">
+		<!--<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>  
+		<global-exception-mappings>  
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+		-->
+		
+		<!-- 用户列表 -->
+		<!--<action name="userList" class="userAction" method="userList">
+			<result>/UserManager/userList.jsp</result>
+		</action>
+
+		--><!-- 添加用户 -->
+		<!--<action name="addUser" class="userAction" method="addUser">
+			<result type="redirect">userList</result>
+			<result name="input">/UserManager/addUser.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 检查用户名是否存在 -->
+		<!--<action name="checkUsername" class="userAction" method="checkUsername">
+			<result name="success" type="plainText">
+				<param name="location">/blank.jsp</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		
+		--><!-- 禁用或启用用户名 -->
+		<!--<action name="forbidOrActivateUser" class="userAction" method="forbidOrActivateUser">
+			<result type="redirect">userList</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 删除用户 -->
+		<!--<action name="delUser" class="com.neko.action.UserAction" method="delUser">
+			<result type="redirect">userList</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 跳转到修改用户页面 -->
+		<!--<action name="modUserPre" class="userAction" method="findUserById">
+			<result>/UserManager/modUser.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 修改用户 -->
+		<!--<action name="modUser" class="userAction" method="modUser">
+			<result type="redirect">userList</result>
+			<result name="input" type="redirect">modUserPre?id=${user.id}</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 查看用户详细信息 -->
+		<!--<action name="userDetail" class="userAction" method="findUserById">
+			<result>/UserManager/userDetail.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+	--></package>
+	
+	<package name="login" namespace="/" extends="struts-default">
+	
+		<!-- 用户登录 -->
+		<!-- 
+		<action name="login" class="userAction" method="login">
+			<result type="redirect">/UserManager/userList</result>
+			<result name="input">/login.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		-->
+		<!-- 用户注销 -->
+		<!--<action name="logout" class="userAction" method="logout">
+			<result>/login.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+	--></package>
+</struts>

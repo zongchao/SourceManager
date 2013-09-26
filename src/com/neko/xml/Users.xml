@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+	<user id="1">
+		<username>admin</username>
+		<password>admin</password>
+		<userType>0</userType>
+		<createTime></createTime>
+		<lastLoginTime></lastLoginTime>
+		<isDelete>0</isDelete>
+	</user>
+</users>

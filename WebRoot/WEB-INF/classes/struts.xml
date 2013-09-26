@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+	<constant name="struts.objectFactory" value="spring"></constant>
+	<include file="com/neko/struts/config/Users.xml"/>
+	<include file="com/neko/struts/config/Common.xml"/>
+	<include file="com/neko/struts/config/Sources.xml"/>
+	<include file="com/neko/struts/config/SourceTypes.xml"/>
+	<include file="com/neko/struts/config/Contacts.xml"/>
+	<include file="com/neko/struts/config/Finances.xml"/>
+	<include file="com/neko/struts/config/FinanceTypes.xml"/>
+	<include file="com/neko/struts/config/MessageBoards.xml"/>
+</struts>

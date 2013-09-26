@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+.h2 {
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.img {
+	max-height: 256px;
+	max-width: 320px;
+}

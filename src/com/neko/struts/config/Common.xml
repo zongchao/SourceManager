@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="Common" namespace="/" extends="struts-default">
+		<!--<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>  
+		<global-exception-mappings>  
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+		-->
+
+		<!--<action name="getCaptcha" class="commonAction" method="getCaptcha">
+			<result type="stream">  
+               <param name="contentType">image/jpeg</param>  
+               <param name="inputName">inputStream</param>  
+        	</result>  
+		</action>
+	--></package>
+</struts>

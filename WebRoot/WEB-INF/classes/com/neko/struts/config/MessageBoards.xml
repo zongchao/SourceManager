@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="MessageBoard" namespace="/MessageBoard" extends="struts-default">
+		<!--<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>  
+		<global-exception-mappings>  
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+		-->
+		<!-- 留言列表 -->
+		<!--<action name="messageBoardList" class="messageBoardAction" method="messageBoardList">
+			<result name="login" type="redirect">/login.jsp</result>
+			<result>/MessageBoard/messageBoardList.jsp</result>
+		</action>
+		
+		--><!-- 留言管理 -->
+		<!--<action name="messageList" class="messageBoardAction" method="messageList">
+			<result name="login" type="redirect">/login.jsp</result>
+			<result>/MessageBoard/messageList.jsp</result>
+		</action>
+
+		--><!-- 添加留言 -->
+		<!--<action name="addMessageBoard" class="messageBoardAction" method="addMessageBoard">
+			<result type="redirect">messageBoardList?pager.pageNo=1</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 查看留言详细信息 -->
+		<!--<action name="messageBoardDetail" class="messageBoardAction" method="findMessageBoardById">
+			<result>/MessageBoard/messageBoardDetail.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 删除浏览信息 -->
+		<!--<action name="delMessageBoard" class="messageBoardAction" method="delMessageBoard">
+			<result type="redirect">messageList?pager.pageNo=1</result>
+			<result name="input" type="redirect">messageList?pager.pageNo=1</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+	--></package>
+</struts>

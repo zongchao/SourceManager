@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
+    <constant name="struts.multipart.maxSize" value="10701096"/>
+    <!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
+    <constant name="struts.multipart.saveDir " value="d:/tmp" />
+    
+	<package name="ContactManager" namespace="/ContactManager" extends="struts-default">
+		<!--<global-results>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>  
+		<global-exception-mappings>  
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+		-->
+		<!-- 联系人列表 -->
+		<!--<action name="contactList" class="contactAction" method="contactList">
+			<result name="login" type="redirect">/login.jsp</result>
+			<result>/ContactManager/contactList.jsp</result>
+		</action>
+		
+		--><!-- 添加联系人（准备） -->
+		<!--<action name="addContactPre" class="contactAction" method="addContactPre">
+			<result>/ContactManager/addContact.jsp</result>
+		</action>
+		
+		--><!-- 添加资源 -->
+		<!--<action name="addContact" class="contactAction" method="addContact">
+			<result type="redirect">contactList?pager.pageNo=1</result>
+			<result name="input" type="redirect">addContactPre</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 查看资源详细信息  -->
+		<!--<action name="contactDetail" class="contactAction" method="findContactById">
+			<result>/ContactManager/contactDetail.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 跳转到修改联系人页面 -->
+		<!--<action name="modContactPre" class="contactAction" method="findContactById">
+			<result>/ContactManager/modContact.jsp</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 修改联系人 -->
+		<!--<action name="modContact" class="contactAction" method="modContact">
+			<result type="redirect">contactList?pager.pageNo=1</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 删除联系人 -->
+		<!--<action name="delContact" class="contactAction" method="delContact">
+			<result type="redirect">contactList?pager.pageNo=1</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+		
+		--><!-- 导出excel -->
+		<!--<action name="generateContactExcel" class="contactAction" method="generateContactExcel">
+			<result name="success" type="stream">
+			    <param name="contentType">application/vnd.ms-excel</param>
+			    <param name="contentDisposition">attachment;fileName=${fileFileName}</param> 
+			    <param name="inputName">contactExcel</param> 
+			    <param name="bufferSize">4096</param>  
+		    </result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</action>
+	--></package>
+</struts>
