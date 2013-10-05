@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -43,19 +43,21 @@ body {
                             </li>
                         </ul>
                         <ul class="nav pull-right">
-                            <s:if test="#session.user.username != null">
-                                <li>
-                                    <a> 欢迎 <s:property value="#session.user.username" /> 登录本系统 </a>
-                                </li>
-                                <li>
-                                    <a href="${param.path}logout.action"> <i class="icon-off icon-white"></i> 注销 </a>
-                                </li>
-                            </s:if>
-                            <s:else>
-                                <li>
-                                    <a href="${param.path}login.jsp"> <i class="icon-off icon-white"></i> 登录 </a>
-                                </li>
-                            </s:else>
+                        	<c:choose>
+	                        	<c:when test="#session.user.username != null">
+	                                <li>
+	                                    <a> 欢迎 ${sessionScope.user.username} 登录本系统 </a>
+	                                </li>
+	                                <li>
+	                                    <a href="${param.path}logout.action"> <i class="icon-off icon-white"></i> 注销 </a>
+	                                </li>
+	                            </c:when>
+	                            <c:otherwise>
+	                                <li>
+	                                    <a href="${param.path}login.jsp"> <i class="icon-off icon-white"></i> 登录 </a>
+	                                </li>
+	                            </c:otherwise>
+                            </c:choose>
                         </ul>
                     </div>
                 </div>
