@@ -4,9 +4,27 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>WEB-INF/view/index.jsp</welcome-file>
 	</welcome-file-list>
 	
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>
+           org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-servlet.xml</param-value>
+		</init-param>
+        
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
 	<filter>
 		<filter-name>hibernateFilter</filter-name>
 		<filter-class>
@@ -27,22 +45,22 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
-	<filter>
+	<!-- <filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>
 			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
 		</filter-class>
-		<!--<init-param>
+		<init-param>
 			<param-name>config</param-name>
 			<param-value>
 			struts.xml
 			</param-value>
 		</init-param>
-	--></filter>
+	</filter>
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	
 	<!-- 配置spring监听器 -->
 	<listener>
